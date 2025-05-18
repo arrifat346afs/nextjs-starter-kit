@@ -77,7 +77,7 @@ export default function HeroSection() {
               >
                 Automatically generate high-quality titles, keywords, and
                 descriptions for your stock photos and videos. Save hours of
-                manual tagging and boost your content's discoverability on
+                manual tagging and boost your content&apos;s discoverability on
                 platforms like Adobe Stock and Shutterstock.
               </TextEffect>
               <AnimatedGroup

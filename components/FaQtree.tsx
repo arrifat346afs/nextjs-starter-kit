@@ -50,7 +50,7 @@ export default function FAQsThree() {
       icon: "FileText",
       question: "Which stock platforms does TagPix AI support?",
       answer:
-        "TagPix AI is optimized for all major stock platforms including Adobe Stock, Shutterstock, Getty Images, iStock, Alamy, and more. Our platform-specific export formats ensure your metadata meets each marketplace's requirements and character limits for maximum approval rates.",
+        "TagPix AI is optimized for all major stock platforms including Adobe Stock, Shutterstock, Getty Images, iStock, Alamy, and more. Our platform-specific export formats ensure your metadata meets each marketplace&apos;s requirements and character limits for maximum approval rates.",
     },
     {
       id: "item-4",
