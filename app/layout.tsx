@@ -10,14 +10,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://nextstarter.xyz/"),
   title: {
-    default: 'Next Starter',
-    template: `%s | Next Starter`
+    default: "TagPix AI | Automated Metadata Generator for Stock Contributors",
+    template: `%s | TagPix AI`,
   },
   description:
-    "The Ultimate Nextjs 15 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters",
+    "TagPix AI is an intelligent metadata generator that automatically creates SEO-optimized titles, keywords, and descriptions for stock photos and videos. Save time and boost discoverability on Adobe Stock, Shutterstock, and more.",
   openGraph: {
     description:
-      "The Ultimate Nextjs 15 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters",
+      "TagPix AI is an intelligent metadata generator that automatically creates SEO-optimized titles, keywords, and descriptions for stock photos and videos. Save time and boost discoverability on Adobe Stock, Shutterstock, and more.",
     images: [
       "https://dwdwn8b5ye.ufs.sh/f/MD2AM9SEY8GucGJl7b5qyE7FjNDKYduLOG2QHWh3f5RgSi0c",
     ],
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nextjs Starter Kit",
+    title: "TagPix AI | AI-Powered Stock Photo Tagging Tool",
     description:
-      "The Ultimate Nextjs 15 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters",
+      "Automate your stock content workflow with TagPix AI. Our AI tagging tool generates high-quality titles, keywords, and descriptions for stock photos and videos, optimized for maximum discoverability.",
     siteId: "",
     creator: "@rasmickyy",
     creatorId: "",
@@ -35,6 +35,8 @@ export const metadata: Metadata = {
       "https://dwdwn8b5ye.ufs.sh/f/MD2AM9SEY8GucGJl7b5qyE7FjNDKYduLOG2QHWh3f5RgSi0c",
     ],
   },
+  keywords:
+    "AI tagging, stock photo metadata, automated keyword generator, image tagging software, stock photo keywords, AI metadata generator, Shutterstock tags, Adobe Stock metadata, stock contributor tools, image description generator",
 };
 
 export default function RootLayout({
@@ -44,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider dynamic>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className="dark">
         <body className={GeistSans.className}>
           <Provider>
             <ThemeProvider
@@ -52,6 +54,7 @@ export default function RootLayout({
               defaultTheme="dark"
               enableSystem={false}
               disableTransitionOnChange
+              forcedTheme="dark"
             >
               {children}
               <Toaster />

@@ -1,67 +1,72 @@
-"use client"
+"use client";
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import * as LucideIcons from "lucide-react"
-import type { LucideIcon } from "lucide-react"
-import Link from "next/link"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import * as LucideIcons from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
-type IconName = keyof typeof LucideIcons
+type IconName = keyof typeof LucideIcons;
 
 interface DynamicIconProps {
-  name: IconName
-  className?: string
+  name: IconName;
+  className?: string;
 }
 
 const DynamicIcon = ({ name, className }: DynamicIconProps) => {
-  const Icon = LucideIcons[name] as LucideIcon
-  return Icon ? <Icon className={className} /> : null
-}
+  const Icon = LucideIcons[name] as LucideIcon;
+  return Icon ? <Icon className={className} /> : null;
+};
 
 type FAQItem = {
-  id: string
-  icon: IconName
-  question: string
-  answer: string
-}
+  id: string;
+  icon: IconName;
+  question: string;
+  answer: string;
+};
 
 export default function FAQsThree() {
   const faqItems: FAQItem[] = [
     {
       id: "item-1",
-      icon: "Clock",
-      question: "What are your business hours?",
+      icon: "Image",
+      question: "How does TagPix AI generate metadata for my images?",
       answer:
-        "Our customer service team is available Monday through Friday from 9:00 AM to 8:00 PM EST, and weekends from 10:00 AM to 6:00 PM EST. During holidays, hours may vary and will be posted on our website.",
+        "TagPix AI uses advanced computer vision and natural language processing to analyze your images and generate relevant, SEO-optimized titles, descriptions, and keywords. Our AI models are trained on stock photography standards and marketplace requirements to ensure your metadata meets industry best practices.",
     },
     {
       id: "item-2",
       icon: "CreditCard",
-      question: "How do subscription payments work?",
+      question: "What pricing plans are available for TagPix AI?",
       answer:
-        "Subscription payments are automatically charged to your default payment method on the same day each month or year, depending on your billing cycle. You can update your payment information and view billing history in your account dashboard.",
+        "TagPix AI offers flexible pricing options including a free tier for occasional users, a monthly subscription for regular contributors, and custom enterprise plans for agencies and high-volume creators. All paid plans include unlimited metadata generation and advanced features like batch processing and platform-specific optimization.",
     },
     {
       id: "item-3",
-      icon: "Truck",
-      question: "Can I expedite my shipping?",
+      icon: "FileText",
+      question: "Which stock platforms does TagPix AI support?",
       answer:
-        "Yes, we offer several expedited shipping options at checkout. Next-day and 2-day shipping are available for most U.S. addresses if orders are placed before 2:00 PM EST. International expedited shipping options vary by destination.",
+        "TagPix AI is optimized for all major stock platforms including Adobe Stock, Shutterstock, Getty Images, iStock, Alamy, and more. Our platform-specific export formats ensure your metadata meets each marketplace's requirements and character limits for maximum approval rates.",
     },
     {
       id: "item-4",
       icon: "Globe",
-      question: "Do you offer localized support?",
+      question: "Can TagPix AI generate metadata in multiple languages?",
       answer:
-        "We offer multilingual support in English, Spanish, French, German, and Japanese. Our support team can assist customers in these languages via email, chat, and phone during standard business hours for each respective region.",
+        "Yes, TagPix AI supports metadata generation in multiple languages including English, Spanish, French, German, Italian, Portuguese, Japanese, and Chinese. This allows you to target international markets and increase your global reach without the need for manual translation.",
     },
     {
       id: "item-5",
-      icon: "Package",
-      question: "How do I track my order?",
+      icon: "Shield",
+      question: "Is my content secure when using TagPix AI?",
       answer:
-        "Once your order ships, you&rsquo;ll receive a confirmation email with a tracking number. You can use this number on our website or the carrier&rsquo;s website to track your package. You can also view order status and tracking information in your account dashboard under \"Order History\".",
+        "Absolutely. We take your privacy and content security seriously. Your images are processed securely, never stored permanently on our servers, and never used to train our AI models. We use industry-standard encryption and security practices to protect your data at all times.",
     },
-  ]
+  ];
 
   return (
     <section className=" py-20">
@@ -69,11 +74,16 @@ export default function FAQsThree() {
         <div className="flex flex-col gap-10 md:flex-row md:gap-16">
           <div className="md:w-1/3">
             <div className="sticky top-20">
-              <h2 className="mt-4 text-3xl font-bold">Frequently Asked Questions</h2>
+              <h2 className="mt-4 text-3xl font-bold">
+                Frequently Asked Questions About TagPix AI
+              </h2>
               <p className="text-muted-foreground mt-4">
-                Can&rsquo;t find what you&rsquo;re looking for? Contact our{" "}
-                <Link href="#" className="text-primary font-medium hover:underline">
-                  customer support team
+                Have more questions about our AI metadata generator? Contact our{" "}
+                <Link
+                  href="#"
+                  className="text-primary font-medium hover:underline"
+                >
+                  support team
                 </Link>
               </p>
             </div>
@@ -89,7 +99,10 @@ export default function FAQsThree() {
                   <AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline">
                     <div className="flex items-center gap-3">
                       <div className="flex size-6">
-                        <DynamicIcon name={item.icon} className="m-auto size-4" />
+                        <DynamicIcon
+                          name={item.icon}
+                          className="m-auto size-4"
+                        />
                       </div>
                       <span className="text-base">{item.question}</span>
                     </div>
@@ -106,5 +119,5 @@ export default function FAQsThree() {
         </div>
       </div>
     </section>
-  )
+  );
 }

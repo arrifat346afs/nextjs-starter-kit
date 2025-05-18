@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import { Github, Menu, Sparkles, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
-import ModeToggle from "../mode-toggle";
+
 import { Button } from "../ui/button";
 import {
   SheetContent,
@@ -25,7 +25,6 @@ import {
 import { UserProfile } from "../user-profile";
 
 const components: { title: string; href: string; description: string }[] = [
-
   {
     title: "Dashboard",
     href: "/dashboard",
@@ -46,7 +45,7 @@ export default function NavBar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md bg-white/80 dark:bg-background/20"
+      className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md bg-background/20"
     >
       <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
         {/* Logo - Mobile */}
@@ -62,7 +61,7 @@ export default function NavBar() {
                 <SheetTitle className="flex items-center gap-2">
                   <Sparkles className="h-5 w-5" />
                   <span>TagPix Ai</span>
-                </SheetTitle> 
+                </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 mt-6">
                 <div className="px-2 pb-4">
@@ -73,15 +72,13 @@ export default function NavBar() {
                     <Link key={item.href} href={item.href} prefetch={true}>
                       <Button
                         variant="ghost"
-                        className="w-full justify-start text-base font-normal h-11 border border-muted/40 mb-2 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950/50 dark:hover:text-blue-400 transition-colors"
+                        className="w-full justify-start text-base font-normal h-11 border border-muted/40 mb-2 hover:bg-blue-950/50 hover:text-blue-400 transition-colors"
                       >
                         {item.title}
                       </Button>
                     </Link>
                   ))}
                 </div>
-
-                
 
                 {!userId && (
                   <div className="px-2 py-4 border-t mt-auto">
@@ -142,7 +139,6 @@ export default function NavBar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-2">
-          
           {!userId && (
             <Link href="/sign-in" prefetch={true}>
               <Button

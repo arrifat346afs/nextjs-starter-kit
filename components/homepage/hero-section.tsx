@@ -43,7 +43,7 @@ export default function HeroSection() {
                   className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                 >
                   <span className="text-foreground text-sm">
-                    Introducing Support for AI Models
+                    Introducing AI-Powered Metadata Generation
                   </span>
                   <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
                 as="h1"
                 className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]"
               >
-                Modern Solutions for Customer Engagement
+                AI-Powered Metadata for Stock Contributors
               </TextEffect>
               <TextEffect
                 per="line"
@@ -75,8 +75,10 @@ export default function HeroSection() {
                 as="p"
                 className="mx-auto mt-8 max-w-2xl text-balance text-lg"
               >
-                Highly customizable components for building modern websites and
-                applications that look and feel the way you mean it.
+                Automatically generate high-quality titles, keywords, and
+                descriptions for your stock photos and videos. Save hours of
+                manual tagging and boost your content's discoverability on
+                platforms like Adobe Stock and Shutterstock.
               </TextEffect>
               <AnimatedGroup
                 variants={{
@@ -92,23 +94,16 @@ export default function HeroSection() {
                 }}
                 className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
               >
-                <Button asChild size="lg" >
+                <Button asChild size="lg">
                   <Link href="#link">
-                    <span className="text-nowrap">Start Building</span>
+                    <span className="text-nowrap">Get Started Free</span>
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="ghost"
-                
-                  
-                >
+                <Button asChild size="lg" variant="ghost">
                   <Link href="#link">
-                    <span className="text-nowrap">Request a demo</span>
+                    <span className="text-nowrap">See How It Works</span>
                   </Link>
                 </Button>
-                
               </AnimatedGroup>
               <AnimatedGroup>
                 <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
