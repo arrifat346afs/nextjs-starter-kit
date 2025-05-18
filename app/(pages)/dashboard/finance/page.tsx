@@ -11,7 +11,7 @@ import {
   Users, BarChart
 } from "lucide-react";
 import { UserModelUsageChart } from "../_components/user-model-usage-chart";
-export const runtime = "edge";
+
 export default function FinancePage() {
   const { user } = useUser();
 

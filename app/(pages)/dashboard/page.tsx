@@ -3,7 +3,7 @@ import { AIModelComparisonChart } from "./_components/ai-model-comparison-chart"
 import AppDownload from "./_components/app-download";
 
 
-export const runtime = "edge";
+
 export default function Dashboard() {
   return (
     <div className="flex flex-col gap-6 p-6">
