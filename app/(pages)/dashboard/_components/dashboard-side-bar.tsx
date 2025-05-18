@@ -24,15 +24,11 @@ const navItems: NavItem[] = [
     icon: HomeIcon
   },
   {
-    label: "Finance",
+    label: "Account Overview",
     href: "/dashboard/finance",
     icon: Banknote
   },
-  {
-    label: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings
-  }
+
 ]
 
 export default function DashboardSideBar() {
