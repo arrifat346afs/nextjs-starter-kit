@@ -10,7 +10,7 @@ import {
 } from "@/app/(pages)/dashboard/_components/chart";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 // Define types for our data
 interface ModelUsageData {
@@ -40,68 +40,13 @@ export function UserModelUsageChart({ userId }: UserModelUsageChartProps) {
   const [chartData, setChartData] = useState<ModelUsageData[]>([]);
   const [isUsingSampleData, setIsUsingSampleData] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [modelNames, setModelNames] = useState<string[]>([]);
-  const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Fetch data from the API
-  const fetchModelData = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      // Use the full URL with localhost for development
-      const apiUrl =
-        process.env.NODE_ENV === "development"
-          ? `http://localhost:3000/api/model-usage?userId=${userId}`
-          : `https://nextjs-starter-kit-kappa-three.vercel.app/api/model-usage?userId=${userId}`;
-
-      console.log("Fetching user data from:", apiUrl);
-
-      const response = await fetch(apiUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // Include credentials for cookies if needed
-        credentials: "include",
-      });
-
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
-
-      const result: ApiResponse = await response.json();
-
-      if (!result.success || !result.data) {
-        throw new Error(result.error || "Failed to fetch model data");
-      }
-
-      console.log("Received user data:", result.data);
-
-      // Process the data for the chart
-      const processedData = processModelData(result.data);
-      setChartData(
-        processedData.length > 0 ? processedData : generateEmptyData()
-      );
-      setIsUsingSampleData(processedData.length === 0);
-      setLastUpdated(new Date());
-
-      return processedData;
-    } catch (error) {
-      console.error("Error fetching user model data:", error);
-      setError(error instanceof Error ? error.message : "Unknown error");
-      setChartData(generateEmptyData());
-      setIsUsingSampleData(true);
-      return [];
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const hasInitializedRef = useRef(false);
 
   // Process and organize data for the chart
-  const processModelData = (modelMetrics: ModelMetric[]) => {
+  const processModelData = useCallback((modelMetrics: ModelMetric[]) => {
     try {
       // Check if we have any real data
       const hasRealData = modelMetrics.length > 0;
@@ -150,10 +95,10 @@ export function UserModelUsageChart({ userId }: UserModelUsageChartProps) {
       console.error("Error processing model data:", error);
       return [];
     }
-  };
+  }, []);
 
   // Generate empty data for the chart when no real data is available
-  const generateEmptyData = (): ModelUsageData[] => {
+  const generateEmptyData = useCallback((): ModelUsageData[] => {
     const emptyData: ModelUsageData[] = [];
     const today = new Date();
 
@@ -168,10 +113,70 @@ export function UserModelUsageChart({ userId }: UserModelUsageChartProps) {
     }
 
     return emptyData;
-  };
+  }, []);
+
+  // Fetch data from the API
+  const fetchModelData = useCallback(async () => {
+    // Prevent multiple fetches
+    if (isLoading) return;
+
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      // Use the full URL with localhost for development
+      const apiUrl =
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:3000/api/model-usage?userId=${userId}`
+          : `https://nextjs-starter-kit-kappa-three.vercel.app/api/model-usage?userId=${userId}`;
+
+      console.log("Fetching user data from:", apiUrl);
+
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // Include credentials for cookies if needed
+        credentials: "include",
+        // Add cache control to prevent caching
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const result: ApiResponse = await response.json();
+
+      if (!result.success || !result.data) {
+        throw new Error(result.error || "Failed to fetch model data");
+      }
+
+      console.log("Received user data:", result.data);
+
+      // Process the data for the chart
+      const processedData = processModelData(result.data);
+      setChartData(
+        processedData.length > 0 ? processedData : generateEmptyData()
+      );
+      setIsUsingSampleData(processedData.length === 0);
+      setLastUpdated(new Date());
+
+      return processedData;
+    } catch (error) {
+      console.error("Error fetching user model data:", error);
+      setError(error instanceof Error ? error.message : "Unknown error");
+      setChartData(generateEmptyData());
+      setIsUsingSampleData(true);
+      return [];
+    } finally {
+      setIsLoading(false);
+    }
+  }, [generateEmptyData, processModelData, isLoading, userId]);
 
   // Get color for model line
-  const getModelColor = (index: number) => {
+  const getModelColor = useCallback((index: number) => {
     const colors = [
       "#2563eb", // blue-600
       "#16a34a", // green-600
@@ -183,25 +188,28 @@ export function UserModelUsageChart({ userId }: UserModelUsageChartProps) {
       "#db2777", // pink-600
     ];
     return colors[index % colors.length];
-  };
+  }, []);
 
-  // Set up polling and expose API functions
+  // Set up initial data fetch - only once
   useEffect(() => {
-    // Initial data fetch
-    fetchModelData();
+    // Only fetch data once when the component mounts or userId changes
+    if (!hasInitializedRef.current) {
+      hasInitializedRef.current = true;
 
-    // Refresh every 5 minutes
-    pollingIntervalRef.current = setInterval(() => {
+      // Initial data fetch
       fetchModelData();
-    }, 300000);
 
-    return () => {
-      // Clean up interval on component unmount
-      if (pollingIntervalRef.current) {
-        clearInterval(pollingIntervalRef.current);
-      }
-    };
-  }, [userId]);
+      // Expose refresh function to window for manual refresh
+      // @ts-ignore
+      window.refreshUserModelData = fetchModelData;
+
+      return () => {
+        // Clean up
+        // @ts-ignore
+        delete window.refreshUserModelData;
+      };
+    }
+  }, []);
 
   return (
     <div className="flex flex-col h-full">
