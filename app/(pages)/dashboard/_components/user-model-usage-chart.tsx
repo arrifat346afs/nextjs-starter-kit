@@ -209,7 +209,7 @@ export function UserModelUsageChart({ userId }: UserModelUsageChartProps) {
         delete window.refreshUserModelData;
       };
     }
-  }, []);
+  }, [fetchModelData]);
 
   return (
     <div className="flex flex-col h-full">

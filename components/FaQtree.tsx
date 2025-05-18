@@ -59,7 +59,7 @@ export default function FAQsThree() {
       icon: "Package",
       question: "How do I track my order?",
       answer:
-        "Once your order ships, you'll receive a confirmation email with a tracking number. You can use this number on our website or the carrier's website to track your package. You can also view order status and tracking information in your account dashboard under \"Order History\".",
+        "Once your order ships, you&rsquo;ll receive a confirmation email with a tracking number. You can use this number on our website or the carrier&rsquo;s website to track your package. You can also view order status and tracking information in your account dashboard under \"Order History\".",
     },
   ]
 
@@ -71,7 +71,7 @@ export default function FAQsThree() {
             <div className="sticky top-20">
               <h2 className="mt-4 text-3xl font-bold">Frequently Asked Questions</h2>
               <p className="text-muted-foreground mt-4">
-                Can't find what you're looking for? Contact our{" "}
+                Can&rsquo;t find what you&rsquo;re looking for? Contact our{" "}
                 <Link href="#" className="text-primary font-medium hover:underline">
                   customer support team
                 </Link>

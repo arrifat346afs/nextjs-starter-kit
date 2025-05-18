@@ -224,7 +224,7 @@ export function AIModelComparisonChart() {
       const apiUrl =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/model-usage"
-          : "/api/model-usage";
+          : "https://nextjs-starter-kit-kappa-three.vercel.app/api/model-usage";
 
       console.log("Clearing data from:", apiUrl);
 
@@ -301,7 +301,7 @@ export function AIModelComparisonChart() {
         }
       };
     }
-  }, []);
+  }, [addModelData, clearAllData, fetchModelData]);
 
   // Get unique model names from the data
   const modelNames =
