@@ -11,10 +11,9 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@clerk/nextjs";
 import { Dialog } from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
-import { Github, Menu, Sparkles, Twitter, Youtube } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
-
 import { Button } from "../ui/button";
 import {
   SheetContent,
@@ -64,7 +63,7 @@ export default function NavBar() {
                 </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 mt-6">
-                <div className="px-2 pb-4">
+                {/* <div className="px-2 pb-4">
                   <h2 className="text-sm font-medium text-muted-foreground mb-2">
                     Navigation
                   </h2>
@@ -72,13 +71,13 @@ export default function NavBar() {
                     <Link key={item.href} href={item.href} prefetch={true}>
                       <Button
                         variant="ghost"
-                        className="w-full justify-start text-base font-normal h-11 border border-muted/40 mb-2 hover:bg-blue-950/50 hover:text-blue-400 transition-colors"
+                        className="w-full justify-start text-base font-normal h-11 border"
                       >
                         {item.title}
                       </Button>
                     </Link>
                   ))}
-                </div>
+                </div> */}
 
                 {!userId && (
                   <div className="px-2 py-4 border-t mt-auto">
@@ -108,27 +107,6 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {components.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
           <Link href="/dashboard" prefetch={true}>
             <Button variant="ghost">Dashboard</Button>
           </Link>
@@ -143,7 +121,7 @@ export default function NavBar() {
             <Link href="/sign-in" prefetch={true}>
               <Button
                 variant="default"
-                className="bg-blue-600 hover:bg-blue-500 text-white"
+                
               >
                 Sign in
               </Button>
