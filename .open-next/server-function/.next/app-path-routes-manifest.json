@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/api/check-session/route": "/api/check-session",
+  "/api/model-usage/route": "/api/model-usage",
+  "/(pages)/(auth)/sign-up/[[...sign-up]]/page": "/sign-up/[[...sign-up]]",
+  "/(pages)/success/page": "/success",
+  "/(pages)/(auth)/sign-in/[[...sign-in]]/page": "/sign-in/[[...sign-in]]",
+  "/(pages)/cancel/page": "/cancel",
+  "/(pages)/(auth)/user-profile/[[...user-profile]]/page": "/user-profile/[[...user-profile]]",
+  "/(pages)/pricing/page": "/pricing",
+  "/page": "/",
+  "/(pages)/dashboard/finance/page": "/dashboard/finance",
+  "/(pages)/dashboard/page": "/dashboard"
+}

@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/api/check-session/route": "app/api/check-session/route.js",
+  "/api/model-usage/route": "app/api/model-usage/route.js",
+  "/(pages)/(auth)/sign-up/[[...sign-up]]/page": "app/(pages)/(auth)/sign-up/[[...sign-up]]/page.js",
+  "/(pages)/success/page": "app/(pages)/success/page.js",
+  "/(pages)/(auth)/sign-in/[[...sign-in]]/page": "app/(pages)/(auth)/sign-in/[[...sign-in]]/page.js",
+  "/(pages)/cancel/page": "app/(pages)/cancel/page.js",
+  "/(pages)/(auth)/user-profile/[[...user-profile]]/page": "app/(pages)/(auth)/user-profile/[[...user-profile]]/page.js",
+  "/(pages)/pricing/page": "app/(pages)/pricing/page.js",
+  "/page": "app/page.js",
+  "/(pages)/dashboard/finance/page": "app/(pages)/dashboard/finance/page.js",
+  "/(pages)/dashboard/page": "app/(pages)/dashboard/page.js"
+}
