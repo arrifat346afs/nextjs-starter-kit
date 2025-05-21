@@ -1,3 +1,6 @@
+// Add static export configuration
+export const dynamic = 'force-static';
+
 type SitemapEntry = {
   url: string;
   lastModified: string;
