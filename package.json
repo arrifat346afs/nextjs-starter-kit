@@ -6,9 +6,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "build:open-next": "open-next build",
-    "deploy": "npm run build:open-next && wrangler deploy"
+    "lint": "next lint"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.1.2",
@@ -98,7 +96,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240320.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -106,7 +103,6 @@
     "drizzle-kit": "^0.30.0",
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "open-next": "^2.3.5",
     "postcss": "latest",
     "tailwindcss": "^3.3.5",
     "typescript": "latest",

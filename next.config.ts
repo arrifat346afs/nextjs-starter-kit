@@ -36,16 +36,11 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    // Use Cloudflare Image Optimizer for image optimization
-    loader: 'custom',
-    loaderFile: './image-loader.ts',
   },
   experimental: {
     reactCompiler: true,
   },
   pageExtensions: ["ts", "tsx", "mdx"],
-  // Optimize for Cloudflare Workers
-  output: 'standalone',
 };
 
 const withMDX = createMDX({});
