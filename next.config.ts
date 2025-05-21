@@ -38,7 +38,6 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    reactCompiler: true,
   },
   pageExtensions: ["ts", "tsx", "mdx"],
 };
