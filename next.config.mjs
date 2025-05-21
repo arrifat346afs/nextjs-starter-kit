@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
-import type { NextConfig } from 'next';
+// import { NextConfig } from 'next';
 import createMDX from '@next/mdx';
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     remotePatterns: [
       {
