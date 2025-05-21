@@ -10,25 +10,35 @@ import { motion } from "motion/react";
 
 const faqs = [
   {
-    question: "Do I get access to this landing page in the starter kit?",
-    answer:
-      "Yes, this page isn&apos;t even a real landing page more so a template for you to build on.",
-  },
-  {
-    question: "Is the starter kit regularly updated?",
-    answer:
-      "Yes, we continuously update the starter kit with the latest features, security patches, and best practices to ensure you&apos;re always working with cutting-edge technology.",
-  },
-  {
-    question: "Can I use this for commercial projects?",
-    answer:
-      "Absolutely! The starter kit comes with a commercial license, allowing you to use it in both personal and commercial projects without any restrictions.",
-  },
-  {
-    question: "What kind of support do you provide?",
-    answer:
-      "We offer comprehensive support through our Discord community, where you can get help from both our team and other developers using the starter kit.",
-  },
+
+      question: "How does TagPix AI generate metadata for my images?",
+      answer:
+        "TagPix AI uses advanced computer vision and natural language processing to analyze your images and generate relevant, SEO-optimized titles, descriptions, and keywords. Our AI models are trained on stock photography standards and marketplace requirements to ensure your metadata meets industry best practices.",
+    },
+    {
+
+      question: "What pricing plans are available for TagPix AI?",
+      answer:
+        "TagPix AI offers flexible pricing options including a free tier for occasional users, a monthly subscription for regular contributors, and custom enterprise plans for agencies and high-volume creators. All paid plans include unlimited metadata generation and advanced features like batch processing and platform-specific optimization.",
+    },
+    {
+
+      question: "Which stock platforms does TagPix AI support?",
+      answer:
+        "TagPix AI is optimized for all major stock platforms including Adobe Stock, Shutterstock, Getty Images, iStock, Alamy, and more. Our platform-specific export formats ensure your metadata meets each marketplace&apos;s requirements and character limits for maximum approval rates.",
+    },
+    {
+
+      question: "Can TagPix AI generate metadata in multiple languages?",
+      answer:
+        "Yes, TagPix AI supports metadata generation in multiple languages including English, Spanish, French, German, Italian, Portuguese, Japanese, and Chinese. This allows you to target international markets and increase your global reach without the need for manual translation.",
+    },
+    {
+
+      question: "Is my content secure when using TagPix AI?",
+      answer:
+        "Absolutely. We take your privacy and content security seriously. Your images are processed securely, never stored permanently on our servers, and never used to train our AI models. We use industry-standard encryption and security practices to protect your data at all times.",
+    },
 ];
 
 export function AccordionComponent() {
@@ -50,7 +60,7 @@ export function AccordionComponent() {
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
             Everything you need to know about the Next.js Starter Kit.
-            Can&apos;t find the answer you&apos;re looking for? Reach out to our
+            Can't find the answer you're looking for? Reach out to our
             team.
           </p>
         </div>
